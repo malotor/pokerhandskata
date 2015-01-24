@@ -4,6 +4,7 @@ package com.malotor;
 public class PokerGame {
 
 
-    public void hand(String s, String s1) {
+    public int resolve(String[] hands) {
+        return 2;
     }
 }
