@@ -5,20 +5,23 @@ public class PokerGame {
 
     public int resolve(String[] hands) {
 
-        int highNumber = 0;
+        Card higherCart = new Card(hands[0]);
         int winner = 0;
-        int currentPlayer = 1;
 
-        for (String card : hands) {
-            char number = card.charAt(0);
-            //char number = card.charAt(0);
-            if (number > highNumber ) {
-                highNumber = number;
-                winner = currentPlayer;
+        int player = 1;
+
+        int numberOfplayers = hands.length;
+
+        while( player < numberOfplayers ) {
+            Card card = new Card(hands[player]);
+            if ( card.getNumber() > higherCart.getNumber() ) {
+                higherCart = card;
+                winner = player;
             }
-            currentPlayer++;
+            player++;
         }
-
-        return winner;
+        return winner + 1;
     }
+
+
 }
