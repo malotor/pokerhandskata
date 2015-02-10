@@ -4,7 +4,10 @@ import java.lang.String;
 
 public class CardFactory {
     public static Card create(String stringcard) {
+
         char c = stringcard.charAt(0);
+        char suit = stringcard.charAt(1);
+
         int number;
         switch (c) {
             case 'T': number = 10; break;
@@ -16,9 +19,6 @@ public class CardFactory {
                 number =  Character.getNumericValue(c);
                 break;
         }
-
-        char suit = stringcard.charAt(1);
-
         return new Card(number, suit);
     }
 }

@@ -6,20 +6,20 @@ import com.malotor.Hand;
 
 public class PokerGame {
 
-
-    public int resolve(String[] stringHands) {
-
-        ArrayList<Hand> hands = new ArrayList<Hand>();
-
-        int winner = 0;
-        int player = 1;
-
-        for (int i = 0; i < stringHands.length; i++) {
+    protected ArrayList<Hand> hands = new ArrayList<Hand>();
+    protected int numberOfplayers;
+    public PokerGame(String[] stringHands) {
+        numberOfplayers = stringHands.length;
+        for (int i = 0; i < numberOfplayers; i++) {
             Hand hand = HandFactory.create(stringHands[i]);
             hands.add(hand);
         }
+    }
 
-        int numberOfplayers = hands.size();
+    public int getWinner() {
+
+        int winner = 0;
+        int player = 1;
 
         Card higherCart = hands.get(0).getHigherCard();
 
