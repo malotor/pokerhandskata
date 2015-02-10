@@ -20,8 +20,11 @@ public class Card implements Comparable<Card>{
 
         suit = stringcard.charAt(1);
         */
+
         this.number = number;
         this.suit = suit;
+
+
 
     }
 

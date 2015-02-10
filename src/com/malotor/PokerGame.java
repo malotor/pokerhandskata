@@ -15,7 +15,7 @@ public class PokerGame {
         int player = 1;
 
         for (int i = 0; i < stringHands.length; i++) {
-            Hand hand = new Hand(stringHands[i]);
+            Hand hand = HandFactory.create(stringHands[i]);
             hands.add(hand);
         }
 

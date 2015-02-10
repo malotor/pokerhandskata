@@ -1,14 +1,11 @@
 package com.malotor;
 
 import java.lang.String;
-/**
- * Created by manel on 10/02/15.
- */
-public class CardFactory {
-    public static create(String stringcard) {
-        char c = stringcard.charAt(0);
-        Integer number;
 
+public class CardFactory {
+    public static Card create(String stringcard) {
+        char c = stringcard.charAt(0);
+        int number;
         switch (c) {
             case 'T': number = 10; break;
             case 'J': number = 11; break;
@@ -20,7 +17,7 @@ public class CardFactory {
                 break;
         }
 
-        String suit = stringcard.charAt(1);
+        char suit = stringcard.charAt(1);
 
         return new Card(number, suit);
     }

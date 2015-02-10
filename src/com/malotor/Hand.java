@@ -8,11 +8,8 @@ import java.util.ArrayList;
 public class Hand {
     protected ArrayList<Card> cards = new ArrayList<Card>();
 
-    public Hand(String hand) {
-        String[] cardStrings = hand.split(",");
-        for(String cardString : cardStrings) {
-            cards.add(new Card(cardString));
-        }
+    public Hand(ArrayList<Card> cards) {
+        this.cards = cards;
     }
 
     public Card getHigherCard() {
