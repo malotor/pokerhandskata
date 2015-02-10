@@ -1,10 +1,11 @@
 package com.malotor;
 
-public class Card {
+public class Card implements Comparable<Card>{
     protected int number;
     protected char suit;
 
-    public Card(String stringcard) {
+    public Card(int number , char suit) {
+        /*
         char c = stringcard.charAt(0);
         switch (c) {
             case 'T': number = 10; break;
@@ -18,6 +19,10 @@ public class Card {
         }
 
         suit = stringcard.charAt(1);
+        */
+        this.number = number;
+        this.suit = suit;
+
     }
 
     public int getNumber() {
@@ -28,4 +33,10 @@ public class Card {
         return suit;
     }
 
+    public int compareTo(Card card) {
+        int result = 0;
+        if (this.getNumber() > card.getNumber()) result = 1;
+        else if ( this.getNumber() < card.getNumber() ) result = -1;
+        return result;
+    }
 }

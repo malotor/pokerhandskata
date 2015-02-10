@@ -1,19 +1,30 @@
 package com.malotor;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import com.malotor.Hand;
 
 public class PokerGame {
 
-    public int resolve(String[] hands) {
 
-        Card higherCart = new Card(hands[0]);
+    public int resolve(String[] stringHands) {
+
+        ArrayList<Hand> hands = new ArrayList<Hand>();
+
         int winner = 0;
-
         int player = 1;
 
-        int numberOfplayers = hands.length;
+        for (int i = 0; i < stringHands.length; i++) {
+            Hand hand = new Hand(stringHands[i]);
+            hands.add(hand);
+        }
+
+        int numberOfplayers = hands.size();
+
+        Card higherCart = hands.get(0).getHigherCard();
 
         while( player < numberOfplayers ) {
-            Card card = new Card(hands[player]);
+            Card card = hands.get(player).getHigherCard();
             if ( card.getNumber() > higherCart.getNumber() ) {
                 higherCart = card;
                 winner = player;
@@ -22,6 +33,5 @@ public class PokerGame {
         }
         return winner + 1;
     }
-
 
 }
