@@ -21,10 +21,10 @@ public class PokerGame {
         int winner = 0;
         int player = 1;
 
-        Card higherCart = hands.get(0).getHigherCard();
+        Card higherCart = getHand(0).getHigherCard();
 
         while( player < numberOfplayers ) {
-            Card card = hands.get(player).getHigherCard();
+            Card card = getHand(player).getHigherCard();
             if ( card.getNumber() > higherCart.getNumber() ) {
                 higherCart = card;
                 winner = player;
@@ -32,6 +32,10 @@ public class PokerGame {
             player++;
         }
         return winner + 1;
+    }
+
+    public Hand getHand(int player) {
+        return hands.get(player);
     }
 
 }
